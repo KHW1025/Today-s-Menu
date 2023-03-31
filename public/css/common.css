@@ -1,0 +1,322 @@
+@charset 'utf-8';
+
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@font-face {
+  font-family: "KimjungchulMyungjo-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --mw1: 1150px;
+  --mw2: 1550px;
+  --mw3: 1750px;
+  --c_point1: #faecdb;
+  --c_point2: #134a3c;
+  --fs1: 16px;
+  --fs2: 20px;
+  --fs3: 24px;
+  --fs4: 32px;
+  --fs5: 64px;
+  word-break: keep-all;
+  list-style: none;
+  font-family: "GangwonEdu_OTFBoldA";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mw1,
+.mw2,
+.mw3 {
+  width: calc(100% - 4rem);
+  margin: auto;
+}
+.mw1 {
+  max-width: var(--mw1);
+}
+.mw2 {
+  max-width: var(--mw2);
+}
+.mw3 {
+  max-width: var(--mw3);
+}
+
+body {
+  background-color: #ad7a4a;
+  position: relative;
+  padding-top: 60px;
+}
+.paper_bg {
+  background-color: #faecdb;
+  /* margin-top: 60px; */
+  position: relative;
+}
+.clip1_img {
+  width: 140px;
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.clip1_img img {
+  width: 100%;
+}
+
+/* ////////// header 영역 ////////// */
+.hd {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 80px;
+}
+.logo_img {
+  width: 150px;
+}
+.logo_img img {
+  width: 100%;
+}
+.title_box {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+.fork_img {
+  width: 20px;
+}
+.fork_img img {
+  width: 100%;
+}
+.title_detail {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title_detail span {
+  color: var(--c_point2);
+  font-family: "Shrikhand", cursive;
+}
+.title_detail span:nth-of-type(1) {
+  font-size: var(--fs5);
+}
+.title_detail span:nth-of-type(2) {
+  font-size: var(--fs4);
+}
+.spoon_knife_img {
+  width: 45px;
+}
+.spoon_knife_img img {
+  width: 100%;
+}
+.icons {
+  width: 150px;
+  display: flex;
+  align-items: center;
+}
+.icons li {
+  background-color: var(--c_point2);
+  color: var(--c_point1);
+  margin: 0 0.25rem;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+}
+.icons li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.naver_icon a {
+  font-family: "KimjungchulMyungjo-Bold";
+}
+
+/* ////////// list_sec 영역 ////////// */
+.list_sec {
+  margin-top: 150px;
+  border: 1px solid red;
+}
+.category_con {
+  width: 100%;
+  height: 80px;
+  padding: 20px 80px;
+  background-color: var(--c_point2);
+  display: flex;
+  justify-content: space-between;
+}
+.ct_btn {
+  padding: 0 1.5rem;
+  font-size: var(--fs3);
+  color: var(--c_point1);
+  border: 1px solid var(--c_point1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.ct_btn.on {
+  color: var(--c_point2);
+  background-color: var(--c_point1);
+}
+.ct_btn span {
+  margin-top: 0.5rem;
+}
+.list_detail_con {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* gap: 1.5rem; */
+  gap: 50px;
+  padding: 50px 0;
+}
+.food_img {
+  border: 1px solid var(--c_point2);
+  background-color: #f9f9f9;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.food_img img {
+  width: 100%;
+}
+.back {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.food_img:hover .back {
+  opacity: 1;
+}
+
+.food_img .menu_name {
+  color: white;
+}
+.food_img .category {
+  display: none;
+}
+.food_img .comment {
+  display: none;
+}
+.food_img .recipe {
+  display: none;
+}
+.food_img .delete {
+  display: none;
+}
+
+.add_button {
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+}
+.add_button a {
+  width: 550px;
+  font-size: var(--fs4);
+  background-color: var(--c_point2);
+  color: var(--c_point1);
+  text-align: center;
+  padding: 1rem 0 0.75rem;
+}
+
+/* ////////// bottom_img 영역 ////////// */
+.bottom_img {
+  width: 90%;
+  margin: auto;
+}
+.bottom_img img {
+  width: 100%;
+}
+
+/* ////////// detail_modal 영역 ////////// */
+.detail_modal {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.detail_modal.on {
+  display: flex;
+}
+.detail_modal_box {
+  background-color: #f9f9f9;
+  max-width: 800px;
+  padding: 80px;
+}
+
+.modal_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  /* border: 1px solid blue; */
+}
+.modal_img {
+  width: 50%;
+  margin-right: 2rem;
+  background-color: #f9f9f9;
+  /* border: 1px solid red; */
+}
+.modal_img img {
+  width: 100%;
+}
+.text_box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* border: 1px solid blue; */
+}
+.name_box {
+  margin-bottom: 0.5rem;
+}
+.name_box span {
+  display: inline-block;
+  font-size: var(--fs3);
+  font-weight: bold;
+}
+.comment_box {
+  /* border: 1px solid forestgreen; */
+  width: 80%;
+  color: #333;
+}
+.recipe_con {
+  margin-bottom: 1.5rem;
+}
+.recipe_con p {
+  font-size: var(--fs2);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.recipe_con .recipe {
+  display: inline-block;
+  border: 1px solid red;
+}
+.detail_close {
+}

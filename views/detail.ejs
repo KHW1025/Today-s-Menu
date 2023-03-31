@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/write.css" />
+  </head>
+  <body>
+    <header class="hd mw1">
+      <div class="title_box">
+        <div class="fork_img">
+          <img src="/public/img/fork.png" alt="포크" />
+        </div>
+        <a href="/" class="title_detail">
+          <span>Today's MENU</span>
+          <span>in hyun_sikdang</span>
+        </a>
+        <div class="spoon_knife_img">
+          <img src="/public/img/spoon_knife.png" alt="수저" />
+        </div>
+      </div>
+    </header>
+
+    <form action="/add" method="post">
+      <section class="add_con_bg mw1">
+        <div class="clip2_img">
+          <img src="/public/img/clip2.png" alt="클립2" />
+        </div>
+        <ul>
+          <li>
+            <p>글번호 : <%= data._id %></p>
+            <p>메뉴명 : <%= data.메뉴명 %></p>
+            <p>카테고리 : <%= data.카테고리 %></p>
+            <p>레시피 : <%= data.레시피 %></p>
+            <button class="delete" data-id=" <%= data._id %>">삭제</button>
+          </li>
+        </ul>
+      </section>
+    </form>
+    <div class="bottom_img">
+      <img src="/public/img/bottom_img.png" alt="하단이미지" />
+    </div>
+
+    <button class="delete" data-id=" <%= data._id %>">삭제</button>
+    <a href="/edit/<%= data._id %>">수정하기</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+      $(".delete").click(function (e) {
+        let num = e.target.dataset.id;
+        $.ajax({ method: "DELETE", url: "/delete", data: { _id: num } })
+          .done(function (result) {
+            location.href = "/";
+          })
+          .fail(function (xhr, textStatus, errorThrown) {
+            console.log(xhr, textStatus, errorThrown);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+@charset 'utf-8';
+
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@font-face {
+  font-family: "KimjungchulMyungjo-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --mw1: 1350px;
+  --c_point1: #faecdb;
+  --c_point2: #134a3c;
+  --fs1: 16px;
+  --fs2: 20px;
+  --fs3: 24px;
+  --fs4: 32px;
+  --fs5: 64px;
+  word-break: keep-all;
+  list-style: none;
+  font-family: "GangwonEdu_OTFBoldA";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mw1 {
+  width: calc(100% - 4rem);
+  margin: auto;
+}
+.mw1 {
+  max-width: var(--mw1);
+}
+body {
+  background-color: #faecdb;
+}
+
+/* ////////// header 영역 ////////// */
+.hd {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.title_box {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+.fork_img {
+  width: 20px;
+}
+.fork_img img {
+  width: 100%;
+}
+.title_detail {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.title_detail span {
+  color: var(--c_point2);
+  font-family: "Shrikhand", cursive;
+}
+.title_detail span:nth-of-type(1) {
+  font-size: var(--fs5);
+}
+.title_detail span:nth-of-type(2) {
+  font-size: var(--fs4);
+}
+.spoon_knife_img {
+  width: 45px;
+}
+.spoon_knife_img img {
+  width: 100%;
+}
+
+/* ////////// add_con 영역 ////////// */
+.add_con_bg {
+  margin-top: 60px;
+  background-color: #9d591a;
+  padding: 50px;
+  position: relative;
+}
+.clip2_img {
+  width: 100px;
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.clip2_img img {
+  width: 100%;
+}
+
+.add_con {
+  background-color: #fffcf8;
+  box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.25);
+  padding: 100px 150px 0px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.add_detail {
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.add_detail label {
+  margin-bottom: 1.5rem;
+}
+.add_detail label span {
+  display: inline-block;
+  font-size: var(--fs3);
+}
+.add_detail label span:nth-of-type(1) {
+  width: 150px;
+}
+.add_detail label span:nth-of-type(2) {
+  width: 50px;
+}
+.add_detail label input {
+  background-color: var(--c_point1);
+  width: 400px;
+  height: 40px;
+  padding: 0.25rem 1rem;
+  font-size: var(--fs2);
+  border: 1px solid var(--c_point2);
+}
+.add_detail label:last-of-type {
+  display: flex;
+}
+.add_detail label:last-of-type textarea {
+  width: calc(100% - 250px);
+  margin-left: 0.25rem;
+  height: 250px;
+  padding: 1rem;
+  background-color: var(--c_point1);
+  font-size: var(--fs2);
+  border: 1px solid var(--c_point2);
+}
+
+/* ////////// add_button 영역 ////////// */
+.add_button_box {
+  margin: 50px auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.add_button {
+  font-family: "GangwonEdu_OTFBoldA";
+  cursor: pointer;
+  width: 560px;
+  border: none;
+  background-color: var(--c_point2);
+  color: var(--c_point1);
+  font-size: var(--fs4);
+  padding: 1rem 0 0.75rem;
+}
+
+/* ////////// bottom_img 영역 ////////// */
+.bottom_img {
+  width: 100%;
+}
+.bottom_img img {
+  width: 100%;
+}
