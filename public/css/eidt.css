@@ -173,13 +173,13 @@ body {
 }
 
 /* ////////// add_button 영역 ////////// */
-.add_button_box {
+.edit_button_box {
   margin: 50px auto;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.add_button {
+.edit_button {
   font-family: "GangwonEdu_OTFBoldA";
   cursor: pointer;
   width: 560px;
@@ -190,7 +190,7 @@ body {
   padding: 1rem 0 0.75rem;
   transition: 0.3s;
 }
-.add_button:hover {
+.edit_button:hover {
   background-color: var(--c_point3);
 }
 

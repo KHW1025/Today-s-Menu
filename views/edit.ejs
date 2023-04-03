@@ -5,22 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/eidt.css" />
   </head>
   <body>
-    <%- include('nav.ejs') %>
-    <h1>수정하기 페이지 입니다.</h1>
-    <!-- <form action="/edit/<%= post._id %>" method="post"> -->
+    <!--  -->
+    <header class="hd mw1">
+      <div class="title_box">
+        <div class="fork_img">
+          <img src="/public/img/fork.png" alt="포크" />
+        </div>
+        <a href="/" class="title_detail">
+          <span>Today's MENU</span>
+          <span>in hyun_sikdang</span>
+        </a>
+        <div class="spoon_knife_img">
+          <img src="/public/img/spoon_knife.png" alt="수저" />
+        </div>
+      </div>
+    </header>
+
     <form action="/edit?_method=PUT" method="post">
-      <input type="text" name="id" value="<%= post._id %>" hidden />
-      <h1><%= post._id %></h1>
-      <label
-        >오늘의 할일 <input type="text" name="title" value="<%= post.제목 %>"
-      /></label>
-      <label
-        >날짜 <input type="date" name="date" value="<%= post.날짜 %>"
-      /></label>
-      <input type="submit" value="수정" />
+      <section class="add_con_bg mw1">
+        <div class="clip2_img">
+          <img src="/public/img/clip2.png" alt="클립2" />
+        </div>
+
+        <div class="add_con">
+          <div><%= post._id %></div>
+          <div class="add_detail">
+            <label class="menu_add"
+              ><span>메뉴명</span><span>:</span>
+              <input
+                type="text"
+                name="menu"
+                placeholder="메뉴명을 입력해주세요"
+                value="<%= post.메뉴명 %>"
+            /></label>
+            <label class="category_add"
+              ><span>카테고리</span><span>:</span>
+              <input
+                type="text"
+                name="category"
+                placeholder="한식, 양식, 일식, 중식, 기타"
+                value="<%= post.카테고리 %>"
+            /></label>
+            <label class="photo_add"
+              ><span>사진 URL</span><span>:</span>
+              <input
+                type="text"
+                name="photoUrl"
+                placeholder="이미지가 없다면 빈칸으로 작성해주세요."
+                value="<%= post.사진URL %>"
+            /></label>
+            <label class="coment_add"
+              ><span>코멘트</span><span>:</span>
+              <input
+                type="text"
+                name="comment"
+                placeholder="음식에 대한 간단한 코멘트를 작성해주세요."
+                value="<%= post.코멘트 %>"
+            /></label>
+            <label class="recipe_add"
+              ><span>레시피</span><span>:</span>
+              <textarea name="recipe" cols="75" rows="5">
+                  <%= post.레시피 %></textarea
+              >
+            </label>
+          </div>
+        </div>
+      </section>
+      <div class="edit_button_box mw1">
+        <input class="edit_button" type="submit" value="수정완료" />
+      </div>
     </form>
+
+    <div class="bottom_img">
+      <img src="/public/img/bottom_img.png" alt="하단이미지" />
+    </div>
+
+    <script>
+      let photoUrl = document.querySelector(".photo_add input");
+      // console.log(photoUrl);
+    </script>
   </body>
 </html>

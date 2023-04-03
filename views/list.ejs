@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>프로젝트 명</title>
+    <title>Today's Menu</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -15,7 +15,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script src="/public/js/index_tab.js" defer></script>
     <link rel="stylesheet" href="/public/css/common.css" />
   </head>
 
@@ -62,17 +61,17 @@
 
       <section class="list_sec mw1">
         <ul class="category_con">
-          <li class="ct_btn on" data-name="전체"><span>전체</span></li>
-          <li class="ct_btn" data-name="한식"><span>한식</span></li>
-          <li class="ct_btn" data-name="양식"><span>양식</span></li>
-          <li class="ct_btn" data-name="일식"><span>일식</span></li>
-          <li class="ct_btn" data-name="중식"><span>중식</span></li>
-          <li class="ct_btn" data-name="기타"><span>기타</span></li>
+          <li class="ct_btn on" data-catename="전체">전체</li>
+          <li class="ct_btn" data-catename="한식">한식</li>
+          <li class="ct_btn" data-catename="양식">양식</li>
+          <li class="ct_btn" data-catename="일식">일식</li>
+          <li class="ct_btn" data-catename="중식">중식</li>
+          <li class="ct_btn" data-catename="기타">기타</li>
         </ul>
 
         <div class="list_detail_con">
           <% for ( list in post ){ %>
-          <div class="food_img">
+          <div class="food_img on" data-id="<%= post[list]._id %>">
             <img
               src="<%= post[list].사진URL %>"
               alt="<%= post[list].메뉴명 %>"
@@ -80,7 +79,9 @@
             <div class="back">
               <span class="menu_name"><%= post[list].메뉴명 %></span>
             </div>
-            <span class="category"><%= post[list].카테고리 %></span>
+            <span class="category" data-cate="<%= post[list].카테고리 %>"
+              ><%= post[list].카테고리 %></span
+            >
             <span class="comment"><%= post[list].코멘트 %></span>
             <span class="recipe"><%= post[list].레시피 %></span>
             <button class="delete" data-id=" <%= post[list]._id %>">
@@ -106,28 +107,154 @@
           <!-- 모달 내용 들어올 곳 -->
         </div>
         <div class="button_con">
-          <button class="edit">수정하기</button>
+          <button class="edit_button">수정하기</button>
           <div class="delete_btn">
             <!-- 삭제버튼 들어올 곳 -->
           </div>
-          <button class="detail_close">창닫기</button>
+          <button class="detail_close">닫기</button>
         </div>
       </div>
     </div>
 
+    <div class="random_modal">
+      <div class="random_modal_box">
+        <button class="random_close">닫기</button>
+        <div class="random_img">
+          <img src="/public/img/dice.png" alt="랜덤" />
+        </div>
+        <span class="random_name"></span>
+        <button class="random_btn">랜덤추천</button>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script>
-      $(".delete").click(function (e) {
-        console.log("클릭함");
-        let num = e.target.dataset.id;
+      // category
+      const $ctBtn = document.querySelectorAll(".category_con > li");
+      const $foodImgs = document.querySelectorAll(".food_img");
+
+      $ctBtn.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          let btnCate = e.target.dataset.catename;
+          console.log(btnCate);
+
+          $foodImgs.forEach((item2) => {
+            let foodCates = item2.querySelector(".category").dataset.cate;
+
+            item2.classList.remove("on");
+            if (btnCate == "전체" || btnCate == foodCates)
+              item2.classList.add("on");
+          });
+        });
+      });
+
+      // 모달영역
+      const $modal = document.querySelector(".detail_modal");
+      const $detailInner = document.querySelector(".detail_inner");
+      const $deleteBtn = document.querySelector(".delete_btn");
+
+      $foodImgs.forEach((item, i) => {
+        item.addEventListener("click", function (e) {
+          $modal.classList.add("on");
+          // console.log(item);
+          let fImg = item.querySelector("img");
+          let fName = item.querySelector(".menu_name");
+          let fCategory = item.querySelector(".category");
+          let fComment = item.querySelector(".comment");
+          let fRecipe = item.querySelector(".recipe");
+          let fRecipeTxt = fRecipe.innerText.replace(/(?:\r\n|\r|\n)/g, "<br>");
+          let fDelete = item.querySelector(".delete");
+
+          $detailInner.innerHTML = `
+          <div class="modal_top">
+            <div class="modal_img">${fImg.outerHTML}</div>
+            <div class="text_box">
+              <div class="name_box">
+                <span>메뉴명 :<span> ${fName.outerHTML}
+                (${fCategory.outerHTML})
+              </div>
+              <div class="comment_box">
+           ${fComment.outerHTML}
+              </div>
+            </div>
+          </div>
+          <div class="recipe_con">
+            <p>Recipe</p>
+            ${fRecipeTxt}
+          </div>
+          `;
+          $deleteBtn.innerHTML = `
+          ${fDelete.outerHTML}
+          `;
+        });
+      });
+
+      // 삭제버튼
+      $deleteBtn.addEventListener("click", function () {
+        let num = $deleteBtn.querySelector("button").dataset.id;
+        console.log(num);
         $.ajax({ method: "DELETE", url: "/delete", data: { _id: num } })
           .done(function (result) {
-            document.querySelector("div.food_img").fadeOut();
-            // $(e.target).parent("li").fadeOut();
+            location.href = "/";
           })
           .fail(function (xhr, textStatus, errorThrown) {
             console.log(xhr, textStatus, errorThrown);
           });
+      });
+      // 수정버튼
+      const $editBtn = document.querySelector(".edit_button");
+      $editBtn.addEventListener("click", () => {
+        let num = parseInt($deleteBtn.querySelector("button").dataset.id, 10);
+        let url = "/edit/" + encodeURIComponent(num.toString());
+        // console.log(num);
+        location.href = url;
+      });
+
+      //detail Modal닫기버튼
+      const $detailClose = document.querySelector(".detail_close");
+      $detailClose.addEventListener("click", function () {
+        $modal.classList.remove("on");
+      });
+      // 모달 화면 바깥을 누르면 닫히게하는 기능
+      window.addEventListener("click", function (e) {
+        if (e.target == $modal) {
+          $modal.classList.remove("on");
+        }
+      });
+
+      //랜덤 메뉴 Modal
+      const $randomModalBtn = document.querySelector(".dice_icon");
+      const $randomModal = document.querySelector(".random_modal");
+      const $randomBtn = document.querySelector(".random_btn");
+      const $randomImg = document.querySelector(".random_img > img");
+      const $randomNameBox = document.querySelector(".random_name");
+
+      $randomModalBtn.addEventListener("click", () => {
+        $randomModal.classList.add("on");
+      });
+
+      // 랜덤추천버튼
+      $randomBtn.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * $foodImgs.length);
+        const randomMenu = $foodImgs[randomIndex].querySelector("img");
+        const randomName =
+          $foodImgs[randomIndex].querySelector(".menu_name").innerText;
+
+        $randomNameBox.innerText = randomName;
+        $randomImg.src = randomMenu.src;
+      });
+
+      // 랜덤모달 닫기
+      const $randomClose = document.querySelector(".random_close");
+      $randomClose.addEventListener("click", function () {
+        $randomModal.classList.remove("on");
+      });
+      // 모달 화면 바깥을 누르면 닫히게하는 기능
+      window.addEventListener("click", function (e) {
+        if (e.target == $randomModal) {
+          $randomModal.classList.remove("on");
+        }
       });
     </script>
   </body>
