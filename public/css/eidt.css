@@ -157,6 +157,23 @@ body {
   font-size: var(--fs2);
   border: 1px solid var(--c_point2);
 }
+.cate_select {
+  background-color: var(--c_point1);
+  height: 50px;
+  padding: 0.25rem 1rem 0 1.25rem;
+  font-size: var(--fs2);
+  border: 1px solid var(--c_point2);
+  /* color: rgb(110, 110, 110); */
+}
+.category_add .select_error {
+  font-size: 1rem;
+  color: red;
+  margin-left: 0.5rem;
+  display: none;
+}
+.category_add .select_error.on {
+  display: inline-block;
+}
 .add_detail label:last-of-type {
   display: flex;
 }
@@ -300,6 +317,11 @@ body {
   .add_detail label input {
     width: calc(100% - 120px);
     height: 25px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .cate_select {
+    height: 30px;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
   }

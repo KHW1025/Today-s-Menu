@@ -31,14 +31,6 @@
   word-break: keep-all;
   list-style: none;
   font-family: "GangwonEdu_OTFBoldA";
-  /*  */
-  --bg: #000000;
-  --text: #000000;
-  --light-pink: #ffd5a1;
-  --pink: #ffc379;
-  --dark-pink: #e8a24d;
-  --pink-border: #383123;
-  --pink-shadow: #ad7a4a;
 }
 
 a {
@@ -482,11 +474,11 @@ body.on {
   font-size: var(--fs2);
   font-family: "GangwonEdu_OTFBoldA";
   font-weight: 600;
-  color: var(--text);
+  color: #000000;
   text-transform: uppercase;
   padding: 0.75em 1.75em;
-  background: var(--light-pink);
-  border: 3px solid var(--pink-border);
+  background: #ffd5a1;
+  border: 3px solid #383123;
   border-radius: 0.75em;
   transform-style: preserve-3d;
   transition: 150ms cubic-bezier(0, 0, 0.58, 1);
@@ -501,28 +493,28 @@ body.on {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--dark-pink);
+  background: #e8a24d;
   border-radius: inherit;
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0.625em 0 0 var(--pink-shadow);
+  box-shadow: 0 0 0 2px #383123, 0 0.625em 0 0 #ad7a4a;
   transform: translate3d(0, 0.75em, -1em);
   transition: 150ms cubic-bezier(0, 0, 0.58, 1);
   /* box-shadow 150ms cubic-bezier(0, 0, 0.58, 1); */
 }
 .random_btn:hover {
-  background: var(--pink);
+  background: #ffc379;
   transform: translate(0, 0.25em);
 }
 .random_btn:hover::before {
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0.5em 0 0 var(--pink-shadow);
+  box-shadow: 0 0 0 2px #383123, 0 0.5em 0 0 var#ad7a4a;
   transform: translate3d(0, 0.5em, -1em);
   /* height: 90%; */
 }
 .random_btn:active {
-  background: var(--pink);
+  background: #ffc379;
   transform: translate(0em, 0.75em);
 }
 .random_btn:active::before {
-  box-shadow: 0 0 0 2px var(--pink-border), 0 0 var(--pink-shadow);
+  box-shadow: 0 0 0 2px #383123, 0 0 #ad7a4a;
   transform: translate3d(0, 0, -1em);
 }
 
@@ -706,5 +698,11 @@ body.on {
   }
   .spoon_knife_img {
     width: 18px;
+  }
+  .random_modal_box {
+    padding: 50px 30px;
+  }
+  .random_btn {
+    padding: 0.5rem 1.5rem;
   }
 }

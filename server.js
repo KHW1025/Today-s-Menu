@@ -61,13 +61,13 @@ async function main() {
       });
       await postCollection.insertOne({
         _id: totalcounter + 1,
-        메뉴명: menu,
-        카테고리: category,
-        사진URL:
+        postMenu: menu,
+        postCategory: category,
+        postPhotoUrl:
           photoUrl ||
           "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbEutAF%2Fbtr6UDdx2ll%2FUBsVnwTePkrzJ2J114oU70%2Fimg.png",
-        코멘트: comment,
-        레시피: recipe,
+        PostComent: comment,
+        PostRecipe: recipe,
       });
       await counterCollection.updateOne(
         { name: "count" },
@@ -87,17 +87,18 @@ async function main() {
     app.put("/edit", async (req, res) => {
       const { id, menu, category, photoUrl, comment, recipe } = req.body;
       console.log(req.body);
+
       await postCollection.updateOne(
         { _id: parseInt(id) },
         {
           $set: {
-            메뉴명: menu,
-            카테고리: category,
-            사진URL:
+            postMenu: menu,
+            postCategory: category,
+            postPhotoUrl:
               photoUrl ||
               "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbEutAF%2Fbtr6UDdx2ll%2FUBsVnwTePkrzJ2J114oU70%2Fimg.png",
-            코멘트: comment,
-            레시피: recipe,
+            PostComent: comment,
+            PostRecipe: recipe,
           },
         }
       );

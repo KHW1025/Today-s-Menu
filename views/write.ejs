@@ -41,11 +41,16 @@
             /></label>
             <label class="category_add"
               ><span>카테고리</span><span>:</span>
-              <input
-                type="text"
-                name="category"
-                placeholder="한식, 양식, 일식, 중식, 기타"
-            /></label>
+              <select name="category" class="cate_select">
+                <option value="none">=선택=</option>
+                <option value="한식">한식</option>
+                <option value="양식">양식</option>
+                <option value="일식">일식</option>
+                <option value="중식">중식</option>
+                <option value="기타">기타</option>
+              </select>
+              <span class="select_error">카테고리를 선택해주세요.</span>
+            </label>
             <label class="photo_add"
               ><span>사진 URL</span><span>:</span>
               <input
@@ -76,8 +81,17 @@
     </div>
 
     <script>
-      let photoUrl = document.querySelector(".photo_add input");
-      // console.log(photoUrl);
+      const $select = document.querySelector(".cate_select");
+      const $selectError = document.querySelector(".select_error");
+      const $addButton = document.querySelector(".add_button");
+
+      $addButton.addEventListener("click", (e) => {
+        if ($select.value === "none") {
+          e.preventDefault(); // submit 막기
+          alert("카테고리를 선택해주세요."); // 경고창 띄우기
+          $selectError.classList.add("on");
+        }
+      });
     </script>
   </body>
 </html>

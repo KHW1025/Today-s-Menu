@@ -74,17 +74,17 @@
           <% for ( list in post ){ %>
           <div class="food_img on" data-id="<%= post[list]._id %>">
             <img
-              src="<%= post[list].사진URL %>"
-              alt="<%= post[list].메뉴명 %>"
+              src="<%= post[list].postPhotoUrl %>"
+              alt="<%= post[list].postMenu %>"
             />
             <div class="back">
-              <span class="menu_name"><%= post[list].메뉴명 %></span>
+              <span class="menu_name"><%= post[list].postMenu %></span>
             </div>
-            <span class="category" data-cate="<%= post[list].카테고리 %>"
-              ><%= post[list].카테고리 %></span
+            <span class="category" data-cate="<%= post[list].postCategory %>"
+              ><%= post[list].postCategory %></span
             >
-            <span class="comment"><%= post[list].코멘트 %></span>
-            <span class="recipe"><%= post[list].레시피 %></span>
+            <span class="comment"><%= post[list].PostComent %></span>
+            <span class="recipe"><%= post[list].PostRecipe %></span>
             <button class="delete" data-id=" <%= post[list]._id %>">
               삭제하기
             </button>
@@ -135,10 +135,14 @@
       const $ctBtn = document.querySelectorAll(".category_con > li");
       const $foodImgs = document.querySelectorAll(".food_img");
 
-      $ctBtn.forEach((item) => {
+      $ctBtn.forEach((item, i) => {
         item.addEventListener("click", (e) => {
           let btnCate = e.target.dataset.catename;
           console.log(btnCate);
+          $ctBtn.forEach((a) => {
+            a.classList.remove("on");
+          });
+          $ctBtn[i].classList.add("on");
 
           $foodImgs.forEach((item2) => {
             let foodCates = item2.querySelector(".category").dataset.cate;
