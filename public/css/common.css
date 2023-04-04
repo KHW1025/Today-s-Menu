@@ -66,6 +66,10 @@ body {
   background-color: #ad7a4a;
   position: relative;
   padding-top: 60px;
+  overflow: auto;
+}
+body.on {
+  overflow: hidden;
 }
 .paper_bg {
   background-color: #faecdb;
@@ -299,7 +303,7 @@ body {
 
 /* ////////// detail_modal 영역 ////////// */
 .detail_modal {
-  position: absolute;
+  position: fixed;
   display: none;
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
@@ -316,6 +320,8 @@ body {
   background-color: #f9f9f9;
   max-width: 800px;
   padding: 80px;
+  max-height: 90%;
+  overflow: auto;
 }
 
 .modal_top {
@@ -404,7 +410,7 @@ body {
 
 /* ////////// random_modal 영역 ////////// */
 .random_modal {
-  position: absolute;
+  position: fixed;
   display: none;
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
@@ -431,6 +437,19 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
+  background-color: #d9d9d9;
+  color: #000000;
+  font-family: "GangwonEdu_OTFBoldA";
+  border: none;
+  transition: 0.3s;
+  width: 60px;
+  height: 30px;
+  font-size: var(--fs2);
+  padding-top: 0.25rem;
+}
+.random_close:hover {
+  background-color: #aaaaaa;
 }
 .random_img {
   width: 300px;
@@ -505,4 +524,187 @@ body {
 .random_btn:active::before {
   box-shadow: 0 0 0 2px var(--pink-border), 0 0 var(--pink-shadow);
   transform: translate3d(0, 0, -1em);
+}
+
+/* 반응형 */
+
+@media (max-width: 1200px) {
+  .title_detail {
+    margin: 0 1rem;
+  }
+  .list_sec {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .hd {
+    flex-direction: column;
+  }
+  .logo_img {
+    order: 2;
+    margin-bottom: 2rem;
+  }
+  .title_box {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+  .icons {
+    order: 3;
+    justify-content: center;
+  }
+
+  .category_con {
+    padding: 20px 30px;
+  }
+  .list_detail_con {
+    padding: 2rem 0;
+  }
+  .detail_modal_box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 760px) {
+  .mw3,
+  .mw2,
+  .mw1 {
+    width: calc(100% - 2rem);
+  }
+  .clip1_img {
+    width: 100px;
+    top: -40px;
+  }
+  .hd {
+    padding-top: 50px;
+  }
+  .logo_img {
+    margin-bottom: 1rem;
+  }
+  .title_box {
+    margin-bottom: 1rem;
+  }
+  .title_detail span:nth-of-type(1) {
+    font-size: 3rem;
+  }
+  .title_detail span:nth-of-type(2) {
+    font-size: var(--fs3);
+  }
+  .fork_img {
+    width: 15px;
+  }
+  .spoon_knife_img {
+    width: 32px;
+  }
+  .category_con {
+    /* padding: 20px 30px; */
+    padding: 0.75rem;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-around;
+  }
+  .ct_btn {
+    /* margin: 0.25rem 0.5rem; */
+    /* padding: 0.25rem 1.25rem 0; */
+    padding: 0.25rem 1.25rem 0;
+    /* font-size: var(--fs2); */
+    font-size: var(--fs2);
+    margin: 0.25rem;
+  }
+  /* .list_detail_con {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+  } */
+  .detail_modal_box {
+    padding: 50px;
+  }
+  .random_modal_box {
+    width: 70%;
+    padding: 50px;
+  }
+  .random_img {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    padding-top: 40px;
+  }
+  .title_detail span:nth-of-type(1) {
+    font-size: var(--fs4);
+  }
+  .title_detail span:nth-of-type(2) {
+    font-size: var(--fs2);
+  }
+  .fork_img {
+    width: 10px;
+  }
+  .spoon_knife_img {
+    width: 24px;
+  }
+  .list_sec {
+    margin-top: 30px;
+  }
+  .ct_btn {
+    font-size: var(--fs1);
+  }
+  .list_detail_con {
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+  .add_button {
+    margin: 30px auto;
+  }
+}
+@media (max-width: 520px) {
+  .clip1_img {
+    width: 80px;
+    top: -32px;
+  }
+  .modal_top {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .text_box {
+    width: 100%;
+  }
+  .comment_box {
+    width: 100%;
+  }
+  .detail_modal_box {
+    padding: 40px;
+  }
+  .button_con {
+    flex-wrap: wrap;
+  }
+  .delete_btn .delete,
+  .edit_button {
+    width: 80px;
+    height: 25px;
+    font-size: var(--fs1);
+    margin-bottom: 0.25rem;
+  }
+  .detail_close {
+    width: 50px;
+    height: 25px;
+    font-size: var(--fs1);
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .title_detail span:nth-of-type(1) {
+    font-size: var(--fs3);
+    text-align: center;
+  }
+  .title_detail span:nth-of-type(2) {
+    font-size: var(--fs1);
+  }
+  .fork_img {
+    width: 8px;
+  }
+  .spoon_knife_img {
+    width: 18px;
+  }
 }

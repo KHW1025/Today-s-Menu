@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Today's Menu</title>
+    <link rel="icon" href="/public/img/logo.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -150,6 +151,7 @@
       });
 
       // 모달영역
+      const $body = document.querySelector("body");
       const $modal = document.querySelector(".detail_modal");
       const $detailInner = document.querySelector(".detail_inner");
       const $deleteBtn = document.querySelector(".delete_btn");
@@ -157,6 +159,7 @@
       $foodImgs.forEach((item, i) => {
         item.addEventListener("click", function (e) {
           $modal.classList.add("on");
+          $body.classList.add("on");
           // console.log(item);
           let fImg = item.querySelector("img");
           let fName = item.querySelector(".menu_name");
@@ -215,11 +218,13 @@
       const $detailClose = document.querySelector(".detail_close");
       $detailClose.addEventListener("click", function () {
         $modal.classList.remove("on");
+        $body.classList.remove("on");
       });
       // 모달 화면 바깥을 누르면 닫히게하는 기능
       window.addEventListener("click", function (e) {
         if (e.target == $modal) {
           $modal.classList.remove("on");
+          $body.classList.remove("on");
         }
       });
 
@@ -232,6 +237,7 @@
 
       $randomModalBtn.addEventListener("click", () => {
         $randomModal.classList.add("on");
+        $body.classList.add("on");
       });
 
       // 랜덤추천버튼
@@ -249,11 +255,13 @@
       const $randomClose = document.querySelector(".random_close");
       $randomClose.addEventListener("click", function () {
         $randomModal.classList.remove("on");
+        $body.classList.remove("on");
       });
       // 모달 화면 바깥을 누르면 닫히게하는 기능
       window.addEventListener("click", function (e) {
         if (e.target == $randomModal) {
           $randomModal.classList.remove("on");
+          $body.classList.remove("on");
         }
       });
     </script>

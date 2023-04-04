@@ -37,12 +37,11 @@ a {
 }
 
 .mw1 {
-  width: calc(100% - 4rem);
+  max-width: var(--mw1);
+  /* width: calc(100% - 4rem); */
   margin: auto;
 }
-.mw1 {
-  max-width: var(--mw1);
-}
+
 body {
   background-color: #faecdb;
 }
@@ -105,6 +104,9 @@ body {
 }
 
 /* ////////// add_con 영역 ////////// */
+/* form {
+  width: 100%;
+} */
 .add_con_bg {
   margin-top: 60px;
   background-color: #9d591a;
@@ -200,4 +202,118 @@ body {
 }
 .bottom_img img {
   width: 100%;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .add_con {
+    padding: 100px 60px 0;
+  }
+  .add_detail {
+    padding: 0;
+  }
+  .add_detail label span:nth-of-type(1) {
+    width: 100px;
+  }
+  .add_detail label span:nth-of-type(2) {
+    width: 30px;
+  }
+  .add_detail label input {
+    width: calc(100% - 250px);
+  }
+}
+@media (max-width: 760px) {
+  .title_detail {
+    margin: 0 1rem;
+  }
+  .title_detail span:nth-of-type(1) {
+    font-size: 3rem;
+  }
+  .title_detail span:nth-of-type(2) {
+    font-size: var(--fs3);
+  }
+  .fork_img {
+    width: 15px;
+  }
+  .spoon_knife_img {
+    width: 32px;
+  }
+  .add_con_bg {
+    padding: 30px;
+  }
+  .clip2_img {
+    width: 80px;
+  }
+  .add_con {
+    padding: 80px 30px 0;
+  }
+  .add_detail label {
+    margin-bottom: 0.75rem;
+  }
+  .add_detail label span {
+    font-size: var(--fs2);
+  }
+  .add_detail label span:nth-of-type(1) {
+    width: 80px;
+  }
+  .add_detail label span:nth-of-type(2) {
+    width: 20x;
+  }
+  .add_detail label input {
+    width: calc(100% - 150px);
+  }
+  .add_detail label:last-of-type textarea {
+    width: calc(100% - 150px);
+    height: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title_detail span:nth-of-type(1) {
+    font-size: var(--fs4);
+  }
+  .title_detail span:nth-of-type(2) {
+    font-size: var(--fs2);
+  }
+  .fork_img {
+    width: 10px;
+  }
+  .spoon_knife_img {
+    width: 24px;
+  }
+  .add_con_bg {
+    margin-top: 40px;
+  }
+  .clip2_img {
+    width: 60px;
+  }
+  .add_con {
+    padding: 50px 20px 0;
+  }
+  .add_detail label {
+    margin-bottom: 0.5rem;
+  }
+  .add_detail label span {
+    font-size: var(--fs1);
+  }
+  .add_detail label span:nth-of-type(1) {
+    width: 60px;
+  }
+  .add_detail label span:nth-of-type(2) {
+    width: 10px;
+  }
+  .add_detail label input {
+    width: calc(100% - 120px);
+    height: 25px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .add_detail label:last-of-type textarea {
+    width: calc(100% - 120px);
+    font-size: var(--fs1);
+    height: 150px;
+  }
+  .add_button_box {
+    margin: 30px auto;
+  }
 }
