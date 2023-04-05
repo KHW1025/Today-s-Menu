@@ -13,4 +13,4 @@
 ## Demo
 <br>
 
-> - https://port-0-what-should-i-eat-today-1msx2blg1j91s3.sel3.cloudtype.app/
+> - https://port-0-today-s-menu-1msx2blg1sfry0.sel3.cloudtype.app/
