@@ -1,7 +1,7 @@
 # Today's Menu
 
 <div align="center">
-<img width="150" alt="image" src="https://user-images.githubusercontent.com/119498531/229673340-67809301-ca5e-4cc8-9fc9-c2852a262021.png">
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/119498531/229957945-96ecbfed-d15c-43c5-b16c-9e83cefd2df0.png">
 </div>
 
 ## 주제 & 기능
