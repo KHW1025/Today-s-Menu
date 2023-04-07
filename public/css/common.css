@@ -186,7 +186,7 @@ body.on {
   justify-content: space-between;
 }
 .ct_btn {
-  padding: 0.25rem 1.5rem 0;
+  padding: 0.5rem 1.5rem 0;
   font-size: var(--fs3);
   color: var(--c_point1);
   border: 1px solid var(--c_point1);
@@ -360,7 +360,7 @@ body.on {
   margin-bottom: 0.5rem;
 }
 .recipe_con .recipe {
-  display: inline-block;
+  /* display: inline-block; */
 }
 .button_con {
   display: flex;

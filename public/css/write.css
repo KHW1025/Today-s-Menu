@@ -139,7 +139,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .add_detail label {
   margin-bottom: 1.5rem;
 }
@@ -178,17 +177,18 @@ body {
 .category_add .select_error.on {
   display: inline-block;
 }
-.add_detail label:last-of-type {
+.recipe_add {
   display: flex;
 }
-.add_detail label:last-of-type textarea {
-  width: calc(100% - 250px);
-  margin-left: 0.25rem;
-  height: 250px;
-  padding: 1rem;
-  background-color: var(--c_point1);
-  font-size: var(--fs2);
-  border: 1px solid var(--c_point2);
+.recipe_text span:first-of-type {
+  display: inline-block;
+  width: 150px;
+  font-size: var(--fs3);
+}
+.recipe_text span:last-of-type {
+  display: inline-block;
+  width: 50px;
+  font-size: var(--fs3);
 }
 
 /* ////////// add_button 영역 ////////// */

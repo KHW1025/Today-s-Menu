@@ -161,7 +161,7 @@
       const $deleteBtn = document.querySelector(".delete_btn");
 
       $foodImgs.forEach((item, i) => {
-        item.addEventListener("click", function (e) {
+        item.addEventListener("click", (e) => {
           $modal.classList.add("on");
           $body.classList.add("on");
           // console.log(item);
@@ -182,13 +182,13 @@
                 (${fCategory.outerHTML})
               </div>
               <div class="comment_box">
-           ${fComment.outerHTML}
+                ${fComment.outerHTML}
               </div>
             </div>
           </div>
           <div class="recipe_con">
             <p>Recipe</p>
-            ${fRecipeTxt}
+            <span class="recipe_text">${fRecipeTxt}<span>
           </div>
           `;
           $deleteBtn.innerHTML = `
@@ -198,7 +198,7 @@
       });
 
       // 삭제버튼
-      $deleteBtn.addEventListener("click", function () {
+      $deleteBtn.addEventListener("click", () => {
         let num = $deleteBtn.querySelector("button").dataset.id;
         console.log(num);
         $.ajax({ method: "DELETE", url: "/delete", data: { _id: num } })
@@ -220,12 +220,12 @@
 
       //detail Modal닫기버튼
       const $detailClose = document.querySelector(".detail_close");
-      $detailClose.addEventListener("click", function () {
+      $detailClose.addEventListener("click", () => {
         $modal.classList.remove("on");
         $body.classList.remove("on");
       });
       // 모달 화면 바깥을 누르면 닫히게하는 기능
-      window.addEventListener("click", function (e) {
+      window.addEventListener("click", (e) => {
         if (e.target == $modal) {
           $modal.classList.remove("on");
           $body.classList.remove("on");
@@ -257,12 +257,12 @@
 
       // 랜덤모달 닫기
       const $randomClose = document.querySelector(".random_close");
-      $randomClose.addEventListener("click", function () {
+      $randomClose.addEventListener("click", () => {
         $randomModal.classList.remove("on");
         $body.classList.remove("on");
       });
       // 모달 화면 바깥을 누르면 닫히게하는 기능
-      window.addEventListener("click", function (e) {
+      window.addEventListener("click", (e) => {
         if (e.target == $randomModal) {
           $randomModal.classList.remove("on");
           $body.classList.remove("on");
