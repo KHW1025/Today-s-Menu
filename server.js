@@ -55,7 +55,7 @@ async function main() {
 
     //POST
     app.post("/add", async function (req, res) {
-      let { menu, category, photoUrl, comment, steps } = req.body;
+      let { menu, category, photoUrl, comment, recipe } = req.body;
       const { totalcounter } = await counterCollection.findOne({
         name: "count",
       });
@@ -67,7 +67,7 @@ async function main() {
           photoUrl ||
           "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbEutAF%2Fbtr6UDdx2ll%2FUBsVnwTePkrzJ2J114oU70%2Fimg.png",
         PostComent: comment,
-        PostRecipe: steps,
+        PostRecipe: recipe,
       });
       await counterCollection.updateOne(
         { name: "count" },

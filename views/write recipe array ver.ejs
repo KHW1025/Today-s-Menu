@@ -65,10 +65,20 @@
                 name="comment"
                 placeholder="음식에 대한 간단한 코멘트를 작성해주세요."
             /></label>
-            <label class="recipe_add"
-              ><span>레시피</span><span>:</span>
-              <textarea name="recipe" cols="75" rows="5"></textarea>
-            </label>
+            <div class="recipe_add">
+              <div class="recipe_text"><span>레시피</span><span>:</span></div>
+              <div class="recipe_add_con">
+                <div class="recipe_add_box">
+                  <input
+                    type="text"
+                    name="steps"
+                    placeholder="step1"
+                    id="recipe_step1"
+                  />
+                  <button id="step_add_btn">Step 추가</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -91,6 +101,45 @@
           alert("카테고리를 선택해주세요."); // 경고창 띄우기
           $selectError.classList.add("on");
         }
+      });
+
+      // step add btn
+      const $stepAddBtn = document.querySelector("#step_add_btn");
+      const $recipeAddCon = document.querySelector(".recipe_add_con");
+
+      $stepAddBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // submit 막기
+
+        // 새로운 recipe_add_box 생성
+        const $newRecipeAddBox = document.createElement("div");
+        $newRecipeAddBox.classList.add("recipe_add_box");
+
+        // 새로운 recipe_add_box를 recipe_add_con에 추가
+        $recipeAddCon.appendChild($newRecipeAddBox);
+
+        // 새로운 input 생성
+        let $stepsNum = document.querySelectorAll(".recipe_add_box").length;
+        const $newInput = document.createElement("input");
+        $newInput.type = "text";
+        $newInput.name = "steps";
+        $newInput.placeholder = `step${$stepsNum}`; // step 카운트 증가
+        $newInput.id = `#recipe_step${$stepsNum + 1}`; // step에 대한 id 설정
+
+        // 새로운 recipe_add_box 안에 input 추가
+        $newRecipeAddBox.appendChild($newInput);
+
+        // 이전에 추가된 recipe_add_box들 중 가장 마지막에 추가된 요소 선택
+        const $lastRecipeBox = $newRecipeAddBox.previousElementSibling;
+
+        // 이전에 추가된 recipe_add_box의 가장 마지막 자식 요소 (step 추가 버튼) 선택
+        const $lastStepAddBtn = $lastRecipeBox.lastElementChild;
+
+        // 이전 recipe_add_box의 마지막 자식 요소 (step 추가 버튼) 다음으로
+        // 새로 추가한 recipe_add_box 안에 input 요소 다음으로 step 추가 버튼 이동
+        $newRecipeAddBox.insertBefore(
+          $lastStepAddBtn,
+          $newInput.nextElementSibling
+        );
       });
     </script>
   </body>
