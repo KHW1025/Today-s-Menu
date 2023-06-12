@@ -1,8 +1,10 @@
-# Today's Menu
+<img width="800" src="https://github.com/KHW1025/purpledog_renewal/assets/119498531/17377f8c-2204-4294-8f9c-98ecc81fca9e"/>
 
-<div align="center">
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/119498531/229957945-96ecbfed-d15c-43c5-b16c-9e83cefd2df0.png">
-</div>
+# Today's Menu
+<br>
+
+> **오늘의 메뉴 페이지**
+<br>
 
 ## 주제 & 기능
 <br>
