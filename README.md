@@ -44,8 +44,9 @@
 > <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 > <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 > <img src="https://img.shields.io/badge/Node JS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
-> <img src="https://img.shields.io/badge/Mongo DB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
 > <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=Express&logoColor=white"/>
+> <img src="https://img.shields.io/badge/Mongo DB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
+
 
 <br>
 
